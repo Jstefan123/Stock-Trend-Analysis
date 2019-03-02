@@ -38,6 +38,6 @@ def getTwitterSentiment(ticker):
         sentiment += value
         count += 1
 
-    #get the average sentiment
+    # return json obj with information
     sentiment_avg = sentiment / count
     return sentiment_avg

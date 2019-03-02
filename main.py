@@ -5,7 +5,7 @@ import json
 # function for sort that will sort the arry based on the value
 # in the dict["sentiment"]
 def sortFunc(dict):
-    return dict["sentiment"]
+    return dict['sentiment']
 
 def main():
 
@@ -20,15 +20,14 @@ def main():
     for stock in dow30:
         ticker = stock['ticker']
         full_name = stock['full_name']
-        n = getNewsSentiment(ticker, full_name)
-        element = {}
-        element['ticker'] = ticker
-        element['sentiment'] = n
-        sentiments.append(element)
+        sentiments.append(getNewsSentiment(ticker, full_name))
 
     # sort the array from greatest to least
     sentiments.sort(reverse=True, key=sortFunc)
-    print(sentiments)
+
+    # print results
+    for elt in sentiments:
+        print(elt)
 
 if __name__ == "__main__":
     main()

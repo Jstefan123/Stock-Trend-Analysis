@@ -10,14 +10,16 @@ api = NewsApiClient(api_key=api_key)
 
 def getNewsSentiment(ticker, fullname):
 
+    print("Processing", fullname, '(' + ticker + ')', "news articles")
+
     # only allow articles in the last 3 days
     oldest = datetime.date(datetime.now() - timedelta(days=5))
 
     # put the parameters together
-    query = "$" + ticker + " AND " + fullname
+    query = fullname
 
     data = api.get_everything(q=query, from_param=str(oldest), language='en',
-                                  sort_by='popularity', page_size=100)
+                                  sort_by='relevancy', page_size=100)
 
     # number of descriptions that are counted
     count = 0
@@ -31,6 +33,7 @@ def getNewsSentiment(ticker, fullname):
         # if NoneType then skip
         if summary is None:
             continue
+
         # only if the ticker or name is mentioned in this string
         elif ticker in summary or fullname in summary:
 
@@ -40,10 +43,14 @@ def getNewsSentiment(ticker, fullname):
             value = analysis.sentiment.polarity
             sentiment += value
 
-    # get the average sentiment
-    print(sentiment, count)
+    # format data into a JSON dict
+        obj = {}
+        obj['ticker'] = ticker
     if count == 0:
-        return -2
+        obj['sentiment'] = 0
+        obj['num_results'] = 0
     else:
-        sentiment_avg = sentiment / count
-        return sentiment_avg
+        obj['sentiment'] = sentiment / count
+        obj['num_results'] = count
+
+    return obj
