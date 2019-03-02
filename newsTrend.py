@@ -16,10 +16,10 @@ def getNewsSentiment(ticker, fullname):
     oldest = datetime.date(datetime.now() - timedelta(days=5))
 
     # put the parameters together
-    query = fullname
+    query = fullname + " AND " + ticker
 
     data = api.get_everything(q=query, from_param=str(oldest), language='en',
-                                  sort_by='relevancy', page_size=100)
+                                  sort_by='popularity', page_size=100)
 
     # number of descriptions that are counted
     count = 0
@@ -34,23 +34,20 @@ def getNewsSentiment(ticker, fullname):
         if summary is None:
             continue
 
-        # only if the ticker or name is mentioned in this string
-        elif ticker in summary or fullname in summary:
-
-            count += 1;
-            # get the polarity rating from each summary
-            analysis = TextBlob(summary)
-            value = analysis.sentiment.polarity
-            sentiment += value
+        count += 1;
+        # get the polarity rating from each summary
+        analysis = TextBlob(summary)
+        value = analysis.sentiment.polarity
+        sentiment += value
 
     # format data into a JSON dict
         obj = {}
         obj['ticker'] = ticker
     if count == 0:
-        obj['sentiment'] = 0
-        obj['num_results'] = 0
+        obj['news_sentiment'] = 0
+        obj['num_news'] = 0
     else:
-        obj['sentiment'] = sentiment / count
-        obj['num_results'] = count
+        obj['news_sentiment'] = sentiment / count
+        obj['num_news'] = count
 
     return obj
