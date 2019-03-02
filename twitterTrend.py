@@ -1,21 +1,16 @@
+import config
 import tweepy
 import json
 import re
 from textblob import TextBlob
 from datetime import datetime, timedelta
 
-# api keys and tokens to set up with twitter developer account
-api_key = "MmB5TCkf7PVCzxbgCCXh0C9I6"
-api_secret_key = "BqRHDkKJzJTTEzadfLtI3vQalyNc9gPjdMxOdM7pVLaMgq2pl4"
-token = "1101628164588167173-TZX6niJlRttzpQuMmXLDpcnDBJoFRY"
-secret_token = "6JiH6DP1nB2LmISJoiT4iC5yWwtoGpzf5sBgQzAtyR2fW"
-
-auth = tweepy.OAuthHandler(api_key, api_secret_key)
-auth.set_access_token(token, secret_token)
-
 # function to get data for a stock
 # returns tweets as an array of JSON dicts
 def getTwitterSentiment(ticker, full_name):
+
+    auth = tweepy.OAuthHandler(config.twitter_api_key, config.twitter_api_secret_key)
+    auth.set_access_token(config.twitter_token, config.twitter_secret_token)
 
     print("Processing", full_name, '(' + ticker + ')', "tweets")
 

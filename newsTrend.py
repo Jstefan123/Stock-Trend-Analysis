@@ -1,14 +1,13 @@
+import config
 from newsapi import NewsApiClient
 from datetime import datetime, timedelta
 from textblob import TextBlob
 import json
 
 
-base_url = "https://newsapi.org/v2/everything"
-api_key = "999e5995615f44ba8ed4cece981b1a09"
-api = NewsApiClient(api_key=api_key)
-
 def getNewsSentiment(ticker, fullname):
+
+    api = NewsApiClient(api_key=config.news_api_key)
 
     print("Processing", fullname, '(' + ticker + ')', "news articles")
 

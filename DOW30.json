@@ -1,1 +1,124 @@
-{"stocks": [{"ticker": "AXP", "full_name": "American Express"}, {"ticker": "AAPL", "full_name": "Apple"}, {"ticker": "BA", "full_name": "Boeing"}, {"ticker": "CAT", "full_name": "Caterpillar"}, {"ticker": "CSCO", "full_name": "Cisco"}, {"ticker": "CVX", "full_name": "Chevron"}, {"ticker": "DWDP", "full_name": "Dow Chemical"}, {"ticker": "XOM", "full_name": "Exxon Mobil"}, {"ticker": "GS", "full_name": "Goldman Sachs"}, {"ticker": "HD", "full_name": "Home Depot"}, {"ticker": "IBM", "full_name": "IBM"}, {"ticker": "INTC", "full_name": "Intel"}, {"ticker": "JNJ", "full_name": "Johnson and Johnson"}, {"ticker": "KO", "full_name": "Coca-Cola"}, {"ticker": "JPM", "full_name": "JPMorgan Chase"}, {"ticker": "MCD", "full_name": "McDonald's"}, {"ticker": "MMM", "full_name": "3M"}, {"ticker": "MRK", "full_name": "Merck & Co"}, {"ticker": "MSFT", "full_name": "Microsoft"}, {"ticker": "NKE", "full_name": "Nike"}, {"ticker": "PFE", "full_name": "Pfizer"}, {"ticker": "PG", "full_name": "Procter & Gamble"}, {"ticker": "TRV", "full_name": "Travelers Company"}, {"ticker": "UNH", "full_name": "UnitedHealth"}, {"ticker": "UTX", "full_name": "United Technologies"}, {"ticker": "VZ", "full_name": "Verizon"}, {"ticker": "V", "full_name": "Visa"}, {"ticker": "WBA", "full_name": "Walgreens"}, {"ticker": "WMT", "full_name": "Walmart"}, {"ticker": "DIS", "full_name": "Walt Disney Company"}]}
+{
+  "stocks": [
+    {
+      "ticker": "AXP",
+      "full_name": "American Express"
+    },
+    {
+      "ticker": "AAPL",
+      "full_name": "Apple"
+    },
+    {
+      "ticker": "BA",
+      "full_name": "Boeing"
+    },
+    {
+      "ticker": "CAT",
+      "full_name": "Caterpillar"
+    },
+    {
+      "ticker": "CSCO",
+      "full_name": "Cisco"
+    },
+    {
+      "ticker": "CVX",
+      "full_name": "Chevron"
+    },
+    {
+      "ticker": "DWDP",
+      "full_name": "Dow Chemical"
+    },
+    {
+      "ticker": "XOM",
+      "full_name": "Exxon Mobil"
+    },
+    {
+      "ticker": "GS",
+      "full_name": "Goldman Sachs"
+    },
+    {
+      "ticker": "HD",
+      "full_name": "Home Depot"
+    },
+    {
+      "ticker": "IBM",
+      "full_name": "IBM"
+    },
+    {
+      "ticker": "INTC",
+      "full_name": "Intel"
+    },
+    {
+      "ticker": "JNJ",
+      "full_name": "Johnson and Johnson"
+    },
+    {
+      "ticker": "KO",
+      "full_name": "Coca-Cola"
+    },
+    {
+      "ticker": "JPM",
+      "full_name": "JPMorgan Chase"
+    },
+    {
+      "ticker": "MCD",
+      "full_name": "McDonald's"
+    },
+    {
+      "ticker": "MMM",
+      "full_name": "3M"
+    },
+    {
+      "ticker": "MRK",
+      "full_name": "Merck & Co"
+    },
+    {
+      "ticker": "MSFT",
+      "full_name": "Microsoft"
+    },
+    {
+      "ticker": "NKE",
+      "full_name": "Nike"
+    },
+    {
+      "ticker": "PFE",
+      "full_name": "Pfizer"
+    },
+    {
+      "ticker": "PG",
+      "full_name": "Procter & Gamble"
+    },
+    {
+      "ticker": "TRV",
+      "full_name": "Travelers Company"
+    },
+    {
+      "ticker": "UNH",
+      "full_name": "UnitedHealth"
+    },
+    {
+      "ticker": "UTX",
+      "full_name": "United Technologies"
+    },
+    {
+      "ticker": "VZ",
+      "full_name": "Verizon"
+    },
+    {
+      "ticker": "V",
+      "full_name": "Visa"
+    },
+    {
+      "ticker": "WBA",
+      "full_name": "Walgreens"
+    },
+    {
+      "ticker": "WMT",
+      "full_name": "Walmart"
+    },
+    {
+      "ticker": "DIS",
+      "full_name": "Walt Disney Company"
+    }
+  ]
+}

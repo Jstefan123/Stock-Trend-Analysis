@@ -5,12 +5,7 @@ import json
 # function for sort that will sort the arry based on the value
 # in the dict["sentiment"]
 def sortFunc(dict):
-    sum = dict['news_sentiment'] + dict['twitter_sentiment']
-    count = dict['num_news'] + dict['num_tweets']
-    if count == 0:
-        return 0
-    else:
-        return sum / count
+    return dict['news_sentiment'] + dict['twitter_sentiment']
 
 def main():
 
@@ -22,14 +17,14 @@ def main():
     # list of stocks and thier sentiment values
     sentiments = []
 
+    results = getNewsSentiment('BWA', 'BorgWarner')
+
+    twitter_results = getTwitterSentiment('BWA', 'BorgWarner')
+
     # analyze the news articles
     for stock in dow30:
         ticker = stock['ticker']
         full_name = stock['full_name']
-
-        results = getNewsSentiment(ticker, full_name)
-
-        twitter_results = getTwitterSentiment(ticker, full_name)
 
         # add the num and sentiment elements into results
         results['twitter_sentiment'] = twitter_results['twitter_sentiment']
