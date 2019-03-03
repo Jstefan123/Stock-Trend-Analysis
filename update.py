@@ -8,15 +8,16 @@ import sqlite3
 def insertData(index):
 
     if index == 'DOW30':
-        data = getIndexData('data/DOW30.json')
+        data = getIndexData('DOW30.json')
         for stock in data:
+            print(stock)
             db.execute("""INSERT INTO DOW30
             (ticker, twitter_sentiment, news_sentiment, num_tweets, num_news)
             VALUES (?,?,?,?,?)""",
             (stock['ticker'], stock['twitter_sentiment'],
             stock['news_sentiment'], stock['num_tweets'], stock['num_news']))
     else:
-        data = getIndexData('data/NASDAQ100.json')
+        data = getIndexData('NASDAQ100.json')
         for stock in data:
             db.execute("""INSERT INTO NASDAQ100
             (ticker, twitter_sentiment, news_sentiment, num_tweets, num_news)
@@ -30,7 +31,7 @@ def getIndexData(json_file):
 
     # load in the list of DOW 30 stocks into a array of JSON dicts
     dict = {}
-    with open(json_file, 'r') as infile:
+    with open('data/' + json_file, 'r') as infile:
         index = json.load(infile)['stocks']
 
     # list of stocks and thier sentiment values
