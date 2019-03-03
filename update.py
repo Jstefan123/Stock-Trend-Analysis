@@ -1,15 +1,30 @@
-from twitterTrend import getTwitterSentiment
-from newsTrend import getNewsSentiment
+from twitter import getTwitterSentiment
+from news import getNewsSentiment
 import json
+import sqlite3
 
-
-def getIndexData(index):
+# inserts data for this index into database
+def insertData(index):
 
     # determine which index to use
     if index == 'DOW30':
-        json_file = 'DOW30.json'
+        data = getIndexData('data/DOW30.json')
     else:
-        json_file = 'NASDAQ100.json'
+        data = getIndexData('data/NASDAQ100.json')
+
+    # create cursor to connect to database
+    db = sqlite3.connect('data/database.sqlite3').cursor()
+
+    for stock in data:
+        db.execute("""INSERT INTO history
+        (ticker, indx, twitter_sentiment, news_sentiment, num_tweets, num_news)
+        VALUES (?,?,?,?,?,?)""",
+        (stock['ticker'], index, stock['twitter_sentiment'],
+        stock['news_sentiment'], stock['num_tweets'], stock['num_news']))
+
+    return
+
+def getIndexData(json_file):
 
     # load in the list of DOW 30 stocks into a array of JSON dicts
     dict = {}

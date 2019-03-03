@@ -1,0 +1,11 @@
+#!/bin/bash
+# insta485db
+
+# Stop on errors
+set -e
+
+# delete existing database and replace with clean db
+rm -rf data/database.sqlite3
+echo "+ rm -rf data/database.sqlite3"
+sqlite3 data/database.sqlite3 < sql/schema.sql
+echo "+ sqlite3 data/database.sqlite3 < sql/schema.sql"

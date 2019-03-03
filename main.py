@@ -1,13 +1,9 @@
-from data import getIndexData
-from track import trackDowData, trackNASDAQData
-import json
+from update import insertData
 
 def main():
 
-    data = getIndexData('DOW30')
-    trackDowData(data)
-    data = getIndexData('NASDAQ100')
-    trackNASDAQData(data)
+    insertData('DOW30')
+    #insertNewData('NASDAQ100')
 
 if __name__ == "__main__":
     main()

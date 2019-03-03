@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Stop on errors
+set -e
+
+#check that databse does not already exists
+if [ -e "data/database.sqlite3" ]; then
+  echo "Error: database already exists"
+  exit 1
+fi
+
+sqlite3 data/database.sqlite3 < sql/schema.sql
+echo "+ sqlite3 data/database.sqlite3 < sql/schema.sql"

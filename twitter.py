@@ -1,7 +1,6 @@
 import config
 import tweepy
 import json
-import re
 from textblob import TextBlob
 from datetime import datetime, timedelta
 
