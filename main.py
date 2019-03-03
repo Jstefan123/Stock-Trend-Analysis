@@ -9,6 +9,5 @@ def main():
     data = getIndexData('NASDAQ100')
     trackNASDAQData(data)
 
-
 if __name__ == "__main__":
     main()

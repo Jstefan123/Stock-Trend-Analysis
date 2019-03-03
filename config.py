@@ -3,7 +3,7 @@
 num_hours = 24
 
 # for news api
-news_api_key = "bfff1a9ffbdd4a49a737bee46084c0c3"
+news_api_key = "89b8002c604141beb375abd022bb210d"
 
 # for twitter api
 twitter_api_key = "MmB5TCkf7PVCzxbgCCXh0C9I6"
