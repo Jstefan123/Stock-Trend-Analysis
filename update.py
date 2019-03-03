@@ -7,21 +7,22 @@ import sqlite3
 # inserts data for this index into database
 def insertData(index):
 
-    # determine which index to use
     if index == 'DOW30':
         data = getIndexData('data/DOW30.json')
+        for stock in data:
+            db.execute("""INSERT INTO DOW30
+            (ticker, twitter_sentiment, news_sentiment, num_tweets, num_news)
+            VALUES (?,?,?,?,?)""",
+            (stock['ticker'], stock['twitter_sentiment'],
+            stock['news_sentiment'], stock['num_tweets'], stock['num_news']))
     else:
         data = getIndexData('data/NASDAQ100.json')
-
-    # create cursor to connect to database
-    db = sqlite3.connect('data/database.sqlite3').cursor()
-
-    for stock in data:
-        db.execute("""INSERT INTO history
-        (ticker, indx, twitter_sentiment, news_sentiment, num_tweets, num_news)
-        VALUES (?,?,?,?,?,?)""",
-        (stock['ticker'], index, stock['twitter_sentiment'],
-        stock['news_sentiment'], stock['num_tweets'], stock['num_news']))
+        for stock in data:
+            db.execute("""INSERT INTO NASDAQ100
+            (ticker, twitter_sentiment, news_sentiment, num_tweets, num_news)
+            VALUES (?,?,?,?,?)""",
+            (index, stock['ticker'], stock['twitter_sentiment'],
+            stock['news_sentiment'], stock['num_tweets'], stock['num_news']))
 
     return
 
