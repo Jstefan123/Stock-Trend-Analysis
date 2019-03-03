@@ -1,3 +1,4 @@
+from config import db
 from twitter import getTwitterSentiment
 from news import getNewsSentiment
 import json

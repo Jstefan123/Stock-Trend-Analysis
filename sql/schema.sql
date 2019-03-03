@@ -6,5 +6,5 @@ CREATE TABLE history (
   num_tweets TINYINT(3) NOT NULL,
   num_news TINYINT(3) NOT NULL,
   insert_date DATE DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY(ticker, indx)
+  PRIMARY KEY(ticker, indx, insert_date)
 );
