@@ -1,29 +1,27 @@
 from config import db
 from twitter import getTwitterSentiment
 from news import getNewsSentiment
+from datetime import datetime
 import json
 import sqlite3
 
 # inserts data for this index into database
 def insertData(index):
 
+    date = datetime.date(datetime.now())
+
     if index == 'DOW30':
         data = getIndexData('DOW30.json')
         for stock in data:
-            print(stock)
-            db.execute("""INSERT INTO DOW30
-            (ticker, twitter_sentiment, news_sentiment, num_tweets, num_news)
-            VALUES (?,?,?,?,?)""",
-            (stock['ticker'], stock['twitter_sentiment'],
-            stock['news_sentiment'], stock['num_tweets'], stock['num_news']))
+            db.execute("INSERT INTO DOW30 VALUES (?,?,?,?,?,?)",
+            (stock['ticker'], stock['twitter_sentiment'], stock['news_sentiment'],
+            stock['num_tweets'], stock['num_news'], date))
     else:
         data = getIndexData('NASDAQ100.json')
         for stock in data:
-            db.execute("""INSERT INTO NASDAQ100
-            (ticker, twitter_sentiment, news_sentiment, num_tweets, num_news)
-            VALUES (?,?,?,?,?)""",
-            (index, stock['ticker'], stock['twitter_sentiment'],
-            stock['news_sentiment'], stock['num_tweets'], stock['num_news']))
+            db.execute("INSERT INTO NASDAQ100 VALUES (?,?,?,?,?,?)",
+            (stock['ticker'], stock['twitter_sentiment'], stock['news_sentiment'],
+            stock['num_tweets'], stock['num_news'], date))
 
     return
 
