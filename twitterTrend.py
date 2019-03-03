@@ -20,7 +20,7 @@ def getTwitterSentiment(ticker, full_name):
     query = ticker + " AND " + full_name
 
     # only get tweets from the past 5 days
-    oldest = datetime.date(datetime.now() - timedelta(days=5))
+    oldest = datetime.date(datetime.now() - timedelta(hours=config.num_hours))
 
     # return the 100 most recent results (popular)
     results = api.search(q=query, count=100, since=oldest, tweet_mode="extended",

@@ -1,0 +1,416 @@
+{
+  "stocks": [
+    {
+      "ticker": "ATVI",
+      "full_name": "Activision Blizzard"
+    },
+    {
+      "ticker": "ADBE",
+      "full_name": "Adobe"
+    },
+    {
+      "ticker": "AMD",
+      "full_name": "Advanced Micro Devices"
+    },
+    {
+      "ticker": "ALGN",
+      "full_name": "Align Technology"
+    },
+    {
+      "ticker": "ALXN",
+      "full_name": "Alexion Pharmaceuticals"
+    },
+    {
+      "ticker": "AMZN",
+      "full_name": "Amazon"
+    },
+    {
+      "ticker": "AMGN",
+      "full_name": "Amgen"
+    },
+    {
+      "ticker": "AAL",
+      "full_name": "American Airlines"
+    },
+    {
+      "ticker": "ADI",
+      "full_name": "Analog Devices"
+    },
+    {
+      "ticker": "AAPL",
+      "full_name": "Apple"
+    },
+    {
+      "ticker": "AMAT",
+      "full_name": "Applied Materials"
+    },
+    {
+      "ticker": "ASML",
+      "full_name": "ASML Holding"
+    },
+    {
+      "ticker": "ADSK",
+      "full_name": "Autodesk"
+    },
+    {
+      "ticker": "ADP",
+      "full_name": "Automatic Data Processing"
+    },
+    {
+      "ticker": "AVGO",
+      "full_name": "Broadcom"
+    },
+    {
+      "ticker": "BIDU",
+      "full_name": "Baidu"
+    },
+    {
+      "ticker": "BIIB",
+      "full_name": "Biogen"
+    },
+    {
+      "ticker": "BMRN",
+      "full_name": "Biomarin Pharmaceutical"
+    },
+    {
+      "ticker": "CDNS",
+      "full_name": "Cadence Design Systems"
+    },
+    {
+      "ticker": "CELG",
+      "full_name": "Celgene"
+    },
+    {
+      "ticker": "CERN",
+      "full_name": "Cerner"
+    },
+    {
+      "ticker": "CHKP",
+      "full_name": "Check Point Software"
+    },
+    {
+      "ticker": "CHTR",
+      "full_name": "Charter Communications"
+    },
+    {
+      "ticker": "CTRP",
+      "full_name": "Ctrip"
+    },
+    {
+      "ticker": "CTAS",
+      "full_name": "Cintas"
+    },
+    {
+      "ticker": "CSCO",
+      "full_name": "Cisco Systems"
+    },
+    {
+      "ticker": "CTXS",
+      "full_name": "Citrix Systems"
+    },
+    {
+      "ticker": "CMCSA",
+      "full_name": "Comcast"
+    },
+    {
+      "ticker": "COST",
+      "full_name": "Costco Wholesale"
+    },
+    {
+      "ticker": "CSX",
+      "full_name": "CSX Corp"
+    },
+    {
+      "ticker": "CTSH",
+      "full_name": "Cognizant Technology Solutions"
+    },
+    {
+      "ticker": "DLTR",
+      "full_name": "Dollar Tree"
+    },
+    {
+      "ticker": "EA",
+      "full_name": "Electronic Arts"
+    },
+    {
+      "ticker": "EBAY",
+      "full_name": "eBay"
+    },
+    {
+      "ticker": "EXPE",
+      "full_name": "Expedia"
+    },
+    {
+      "ticker": "FAST",
+      "full_name": "Fastenal"
+    },
+    {
+      "ticker": "FB",
+      "full_name": "Facebook"
+    },
+    {
+      "ticker": "FISV",
+      "full_name": "Fiserv"
+    },
+    {
+      "ticker": "FOX",
+      "full_name": "Twenty-First Century Fox"
+    },
+    {
+      "ticker": "FOXA",
+      "full_name": "Twenty-First Century Fox"
+    },
+    {
+      "ticker": "GILD",
+      "full_name": "Gilead Sciences"
+    },
+    {
+      "ticker": "GOOG",
+      "full_name": "Alphabet Class C"
+    },
+    {
+      "ticker": "GOOGL",
+      "full_name": "Alphabet Class A"
+    },
+    {
+      "ticker": "HAS",
+      "full_name": "Hasbro"
+    },
+    {
+      "ticker": "HSIC",
+      "full_name": "Henry Schein"
+    },
+    {
+      "ticker": "ILMN",
+      "full_name": "Illumina"
+    },
+    {
+      "ticker": "INCY",
+      "full_name": "Incyte"
+    },
+    {
+      "ticker": "INTC",
+      "full_name": "Intel"
+    },
+    {
+      "ticker": "INTU",
+      "full_name": "Intuit"
+    },
+    {
+      "ticker": "ISRG",
+      "full_name": "Intuitive Surgical"
+    },
+    {
+      "ticker": "IDXX",
+      "full_name": "IDEXX Laboratories"
+    },
+    {
+      "ticker": "JBHT",
+      "full_name": "J.B. Hunt Transport Services"
+    },
+    {
+      "ticker": "JD",
+      "full_name": "JD.com"
+    },
+    {
+      "ticker": "KLAC",
+      "full_name": "KLA-Tencor"
+    },
+    {
+      "ticker": "KHC",
+      "full_name": "Kraft Heinz"
+    },
+    {
+      "ticker": "LRCX",
+      "full_name": "Lam Research"
+    },
+    {
+      "ticker": "LBTYA",
+      "full_name": "Liberty Global"
+    },
+    {
+      "ticker": "LBTYK",
+      "full_name": "Liberty Global"
+    },
+    {
+      "ticker": "LULU",
+      "full_name": "Lululemon"
+    },
+    {
+      "ticker": "MELI",
+      "full_name": "MercadoLibre"
+    },
+    {
+      "ticker": "MAR",
+      "full_name": "Marriott"
+    },
+    {
+      "ticker": "MCHP",
+      "full_name": "Microchip Technology"
+    },
+    {
+      "ticker": "MDLZ",
+      "full_name": "Mondelez"
+    },
+    {
+      "ticker": "MNST",
+      "full_name": "Monster Beverage"
+    },
+    {
+      "ticker": "MSFT",
+      "full_name": "Microsoft"
+    },
+    {
+      "ticker": "MU",
+      "full_name": "Micron Technology"
+    },
+    {
+      "ticker": "MXIM",
+      "full_name": "Maxim Integrated"
+    },
+    {
+      "ticker": "MYL",
+      "full_name": "Mylan"
+    },
+    {
+      "ticker": "NTAP",
+      "full_name": "NetApp"
+    },
+    {
+      "ticker": "NFLX",
+      "full_name": "Netflix"
+    },
+    {
+      "ticker": "NTES",
+      "full_name": "NetEase"
+    },
+    {
+      "ticker": "NVDA",
+      "full_name": "NVIDIA"
+    },
+    {
+      "ticker": "NXPI",
+      "full_name": "NXP Semiconductors"
+    },
+    {
+      "ticker": "ORLY",
+      "full_name": "O'Reilly Automotive"
+    },
+    {
+      "ticker": "PAYX",
+      "full_name": "Paychex"
+    },
+    {
+      "ticker": "PCAR",
+      "full_name": "PACCAR"
+    },
+    {
+      "ticker": "BKNG",
+      "full_name": "Booking Holdings"
+    },
+    {
+      "ticker": "PYPL",
+      "full_name": "PayPal Holdings"
+    },
+    {
+      "ticker": "PEP",
+      "full_name": "PepsiCo"
+    },
+    {
+      "ticker": "QCOM",
+      "full_name": "Qualcomm"
+    },
+    {
+      "ticker": "REGN",
+      "full_name": "Regeneron Pharmaceuticals"
+    },
+    {
+      "ticker": "ROST",
+      "full_name": "Ross Stores"
+    },
+    {
+      "ticker": "SIRI",
+      "full_name": "Sirius XM Holdings"
+    },
+    {
+      "ticker": "SWKS",
+      "full_name": "Skyworks Solutions"
+    },
+    {
+      "ticker": "SBUX",
+      "full_name": "Starbucks"
+    },
+    {
+      "ticker": "SYMC",
+      "full_name": "Symantec"
+    },
+    {
+      "ticker": "SNPS",
+      "full_name": "Synopsys"
+    },
+    {
+      "ticker": "TTWO",
+      "full_name": "Take-Two Interactive Software"
+    },
+    {
+      "ticker": "TSLA",
+      "full_name": "Tesla"
+    },
+    {
+      "ticker": "TXN",
+      "full_name": "Texas Instruments"
+    },
+    {
+      "ticker": "TMUS",
+      "full_name": "T-Mobile US"
+    },
+    {
+      "ticker": "ULTA",
+      "full_name": "Ulta Beauty"
+    },
+    {
+      "ticker": "UAL",
+      "full_name": "United Continental"
+    },
+    {
+      "ticker": "VRSN",
+      "full_name": "Verisign"
+    },
+    {
+      "ticker": "VRSK",
+      "full_name": "Verisk Analytics"
+    },
+    {
+      "ticker": "VRTX",
+      "full_name": "Vertex Pharmaceuticals"
+    },
+    {
+      "ticker": "WBA",
+      "full_name": "Walgreens"
+    },
+    {
+      "ticker": "WDC",
+      "full_name": "Western Digital"
+    },
+    {
+      "ticker": "WDAY",
+      "full_name": "Workday"
+    },
+    {
+      "ticker": "WLTW",
+      "full_name": "Willis Towers Watson"
+    },
+    {
+      "ticker": "WYNN",
+      "full_name": "Wynn Resorts"
+    },
+    {
+      "ticker": "XEL",
+      "full_name": "Xcel Energy"
+    },
+    {
+      "ticker": "XLNX",
+      "full_name": "Xilinx"
+    }
+  ]
+}

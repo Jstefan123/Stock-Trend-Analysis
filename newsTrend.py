@@ -12,7 +12,7 @@ def getNewsSentiment(ticker, fullname):
     print("Processing", fullname, '(' + ticker + ')', "news articles")
 
     # only allow articles in the last 3 days
-    oldest = datetime.date(datetime.now() - timedelta(days=5))
+    oldest = datetime.date(datetime.now() - timedelta(hours=config.num_hours))
 
     # put the parameters together
     query = fullname + " AND " + ticker
@@ -40,8 +40,8 @@ def getNewsSentiment(ticker, fullname):
         sentiment += value
 
     # format data into a JSON dict
-        obj = {}
-        obj['ticker'] = ticker
+    obj = {}
+    obj['ticker'] = ticker
     if count == 0:
         obj['news_sentiment'] = 0
         obj['num_news'] = 0
