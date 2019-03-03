@@ -1,11 +1,11 @@
 from update import insertData
-from analyze import *
+from database import *
 
 def main():
 
     #insertData('DOW30')
     #insertData('NASDAQ100')
-    #print(getRecentDOW())
+    print(getRecentDOW())
     #print(getRecentNASDAQ())
     #print(getDOWStock('AAPL'))
     #print(getNASDAQStock('CSCO'))
