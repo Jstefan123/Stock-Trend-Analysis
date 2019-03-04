@@ -50,3 +50,8 @@ def getIndexData(json_file):
         sentiments.append(results)
 
     return sentiments
+
+# when the file is called, will update both tables
+if __name__ == "__main__":
+    insertData('DOW30')
+    insertData('NASDAQ100')
