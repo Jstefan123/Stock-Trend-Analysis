@@ -2,16 +2,18 @@ from config import db
 import sqlite3
 from datetime import datetime
 
-# returns list of all stock data from most recent insert date in DOW30
-def getRecentDOW():
+# returns list of all stock data from past n days
+def getRecentDOW(n):
 
-    #get the most recent date
-    most_recent_date = db.execute("""SELECT insert_date FROM DOW30
-                            ORDER BY insert_date ASC LIMIT 1""").fetchone()[0]
-
-    #retrieve all the data from this date
-    return db.execute("SELECT * FROM DOW30 WHERE insert_date = ?",
-                        (most_recent_date,)).fetchall()
+    # retrieve all the data for stocks from most recent n dates
+    data = db.execute("""SELECT * FROM DOW30 WHERE insert_date IN
+                        (SELECT DISTINCT insert_date
+                        FROM DOW30
+                        ORDER BY insert_date
+                        ASC LIMIT ?)
+                        ORDER BY ticker ASC""",
+                        (n,)).fetchall()
+    return data
 
 
 # returns list of all stock data from most recent insert date in NASDAQ100
