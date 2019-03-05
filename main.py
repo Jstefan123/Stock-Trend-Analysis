@@ -1,10 +1,11 @@
 from database import *
-from plot import createLineGraph
+from plot import singleStockLineGraph
 
 def main():
 
     data = getDOWStock('AAPL')
-    createLineGraph(data)
+    print(data)
+    singleStockLineGraph(data)
 
 if __name__ == "__main__":
     main()
