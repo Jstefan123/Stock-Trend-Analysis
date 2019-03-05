@@ -6,7 +6,7 @@ import os
 num_hours = 24
 
 # for news api
-news_api_key = "999e5995615f44ba8ed4cece981b1a09"
+news_api_key = "89b8002c604141beb375abd022bb210d"
 
 # for twitter api
 twitter_api_key = "NJWHH6Zyv9ONco2KuYrmWHArm"
