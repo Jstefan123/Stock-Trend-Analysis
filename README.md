@@ -12,3 +12,10 @@
 ##### 1 = very negative, 0 = neutral, 1 = very positive
 ##### Each rating for a stock is summed and the total is divided by the number of results to calculate an average polarity rating for that day
 ##### The data for each stock is stored in an SQL database in the corresponding index's table with the respective date of insertion
+
+### Plots (matplotlib.pyplot)
+##### Each stock's historical data is represented by a graph in the respective index's folder
+##### Each graph contains an average polarity rating vs data line graph and a number of results vs date line graph
+##### Each plot is updated with the new data every time data is inserted into SQL database
+
+
