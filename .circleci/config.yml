@@ -44,7 +44,6 @@ jobs:
             . venv/bin/activate
             python3 main.py
 
-      -run:
           name: push to GitHub
           command: |
           git remote add origin https://github.com/Jstefan123/StockSentimentAnalysis.git
