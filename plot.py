@@ -1,4 +1,5 @@
 from database import *
+from config import dow30_tickers, nasdaq100_tickers
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -19,6 +20,9 @@ def singleStockLineGraph(data):
         num_news.append(entry[4])
         dates.append(entry[5])
 
+    # close any figure that may be open
+    plt.close()
+    
     # create figure
     fig = plt.figure(figsize=(9,5))
 
@@ -40,9 +44,27 @@ def singleStockLineGraph(data):
     plt.xticks(dates)
     plt.tight_layout()
 
-    file_name = "test.png"
+    # return the plot
+    return plt
 
-    plt.savefig(file_name)
+# given an index, creates the plots for all the stocks in that data
+# and saves/rewrites in /plots/<index>/<ticker>.png
+def createIndexPlots(index):
 
-    # return the file_name
-    return file_name
+    # get the index stock list
+    stock_list = (index == 'DOW30') and dow30_tickers or nasdaq100_tickers
+
+    # iterate through each stock ticker
+    for ticker in stock_list:
+
+        print("Creating", ticker, "plot")
+
+        # get respective stock's data
+        data = (index == 'DOW30') and getDOWStock(ticker) or getNASDAQStock(ticker)
+
+        #create the figure
+        figure = singleStockLineGraph(data)
+
+        # create the file path to save to
+        save_path = 'plots/' + index + '/' + ticker
+        plt.savefig(save_path)

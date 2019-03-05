@@ -1,11 +1,10 @@
 from database import *
-from plot import singleStockLineGraph
+from plot import createIndexPlots
 
 def main():
 
-    data = getDOWStock('AAPL')
-    print(data)
-    singleStockLineGraph(data)
+    createIndexPlots('DOW30')
+    createIndexPlots('NASDAQ100')
 
 if __name__ == "__main__":
     main()
