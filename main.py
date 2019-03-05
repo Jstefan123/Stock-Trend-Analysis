@@ -2,7 +2,7 @@ from database import *
 
 def main():
 
-    data = getRecentNASDAQ(2, 'num_tweets')
+    data = getRecentData('NASDAQ100', 'news_sentiment', 'all')
     prettyPrintResults(data)
 
 if __name__ == "__main__":
