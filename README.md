@@ -2,7 +2,7 @@
 ### Supports socks listed in the DOW30 and NASDAQ100 indices
 
 ### Fetching Data (every 24 hours)
-##### Uses Twitter Developer API to fetch up to 100 tweets that match a stock
+###### Uses Twitter Developer API to fetch up to 100 tweets that match a stock
 ##### Uses NewsAPI.org to fetch all articles published in the past 24 hours that match a stock
 
 
