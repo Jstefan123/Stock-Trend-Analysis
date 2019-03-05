@@ -44,6 +44,7 @@ def getTwitterSentiment(ticker, full_name):
     # format data into a JSON dict
     obj = {}
     obj['ticker'] = ticker
+    
     if count == 0:
         obj['twitter_sentiment'] = 0
         obj['num_tweets'] = 0
