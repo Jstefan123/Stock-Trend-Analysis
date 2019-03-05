@@ -1,5 +1,7 @@
 from database import *
-from matplotlib import pyplot
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import numpy
 
 # given an array data for a single stock from database, create a line graph
@@ -23,9 +25,10 @@ def createLineGraph(data):
 
     # create y axis arrays
     y_stack = numpy.row_stack((news_sent, twitter_sent, num_news, num_tweets))
+    print(y_stack)
 
     # create the plot
-    fig = pyplot.figure(figsize=(11,8))
+    fig = plt.figure(figsize=(11,8))
     graph = fig.add_subplot(111)
 
     # plot each respecive category
@@ -35,8 +38,8 @@ def createLineGraph(data):
     graph.plot(dates, y_stack[3,:], label='Number of Tweets', color='c', marker='o')
 
     # label x axis
-    pyplot.xticks(dates)
-    pyplot.xlabel('Date')
+    plt.xticks(dates)
+    plt.xlabel('Date')
 
     # create legend and turn graph lines on
     handles, labels = graph.get_legend_handles_labels()
