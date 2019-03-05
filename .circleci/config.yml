@@ -26,7 +26,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install --upgrade pip
-            pip install textblob
+            pip install textblob datetime newsapi tweepy matplotlib os
 
       - save_cache:
           paths:
