@@ -1,1 +1,0 @@
-json os sqlite3 datetime newsapi textblob tweepy matplotlib
