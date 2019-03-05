@@ -15,7 +15,7 @@
 
 ### Plots (matplotlib.pyplot)
 ###### Each stock's historical data is represented by a graph in the respective index's folder
-###### Each graph contains an average polarity rating vs data line graph and a number of results vs date line graph
+###### Each graph contains an average polarity rating vs date line graph and a number of results vs date line graph
 ###### Each plot is updated with the new data every time data is inserted into SQL database
 
 
