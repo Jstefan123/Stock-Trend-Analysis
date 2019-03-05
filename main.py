@@ -1,9 +1,10 @@
 from database import *
+from plot import createLineGraph
 
 def main():
 
-    data = getRecentData('NASDAQ100', 'news_sentiment', 'all')
-    prettyPrintResults(data)
+    data = getDOWStock('AAPL')
+    createLineGraph(data)
 
 if __name__ == "__main__":
     main()

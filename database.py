@@ -25,14 +25,14 @@ def getRecentData(index, orderBy, numStocks):
 def getDOWStock(ticker):
 
     return db.execute("SELECT * FROM DOW30 WHERE ticker = ?",
-                        (ticker,)).fetchone()
+                        (ticker,)).fetchall()
 
 
 # returns all data of a stock in NASDAQ100
 def getNASDAQStock(ticker):
 
     return db.execute("SELECT * FROM NASDAQ100 WHERE ticker = ?",
-                        (ticker,)).fetchone()
+                        (ticker,)).fetchall()
 
 # given a list of results, prints data in readable format
 # needs to know how many days of results is in the data
