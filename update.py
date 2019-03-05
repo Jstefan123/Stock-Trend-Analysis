@@ -1,4 +1,5 @@
 from config import db
+from plot import updateIndexPlots
 from twitter import getTwitterSentiment
 from news import getNewsSentiment
 from datetime import datetime
@@ -51,7 +52,9 @@ def getIndexData(json_file):
 
     return sentiments
 
-# when the file is called, will update both tables
+# when the file is called, will update both tables and plots
 if __name__ == "__main__":
     insertData('DOW30')
     insertData('NASDAQ100')
+    updateIndexPlots('DOW30')
+    updateIndexPlots('NASDAQ100')

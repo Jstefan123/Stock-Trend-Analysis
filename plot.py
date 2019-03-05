@@ -22,26 +22,28 @@ def singleStockLineGraph(data):
 
     # close any figure that may be open
     plt.close()
-    
+
     # create figure
     fig = plt.figure(figsize=(9,5))
 
     # create sentiment subplot
     plt.subplot(1, 2, 1)
-    news_plot = plt.plot(dates, news_sent, 'r-')
-    twitter_plot = plt.plot(dates, twitter_sent, 'b-')
+    plt.plot(dates, news_sent, 'r-', label="News")
+    plt.plot(dates, twitter_sent, 'b-', label="Twitter")
     plt.ylabel('Sentiment Value')
     plt.xlabel("Date")
     plt.xticks(dates)
+    plt.legend()
     plt.tight_layout()
 
     # create num results subplot
     plt.subplot(1, 2, 2)
-    plt.plot(dates, num_news, 'r-')
-    plt.plot(dates, num_tweets, 'b-')
+    plt.plot(dates, num_news, 'r-', label="News")
+    plt.plot(dates, num_tweets, 'b-', label="Twitter")
     plt.ylabel('Number of Results')
     plt.xlabel('Date')
     plt.xticks(dates)
+    plt.legend()
     plt.tight_layout()
 
     # return the plot
@@ -49,7 +51,7 @@ def singleStockLineGraph(data):
 
 # given an index, creates the plots for all the stocks in that data
 # and saves/rewrites in /plots/<index>/<ticker>.png
-def createIndexPlots(index):
+def updateIndexPlots(index):
 
     # get the index stock list
     stock_list = (index == 'DOW30') and dow30_tickers or nasdaq100_tickers
