@@ -9,7 +9,7 @@ num_hours = 24
 news_api_key = "999e5995615f44ba8ed4cece981b1a09"
 
 # for twitter api
-twitter_api_key = "NJWHH6Zyv9ONco2KuYrmWHArm "
+twitter_api_key = "NJWHH6Zyv9ONco2KuYrmWHArm"
 twitter_api_secret_key = "43GiTYAh61eTgatGk44hTi6fBV7Zw6v7E8AK65LwEYHmggO92w"
 twitter_token = "1103049068052402177-nEkhHawLE76okjfEzlkDoLtiw9gdkF"
 twitter_secret_token = "SizLLo62icfJU7eK7XDZrdjfUvPhio3jPPCT6Xhful1dB"
