@@ -1,0 +1,9 @@
+--upgrade pip
+json
+os
+sqlite3
+datetime
+newaspi
+textblob
+tweepy
+matplotlib
