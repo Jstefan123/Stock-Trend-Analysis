@@ -50,7 +50,7 @@ jobs:
             git config --global user.email "jstefan@umich.edu"
             git config --global user.name "Jstefan123"
             git add data/*
-            git commit -m "test yml commit"
+            git commit -m "CircleCI data update"
             git push -u origin master
 
       - store_artifacts:
