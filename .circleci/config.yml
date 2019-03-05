@@ -1,6 +1,15 @@
 # Python CircleCI 2.0 configuration file
 
 version: 2
+ nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+                - beta
 jobs:
   build:
     docker:
