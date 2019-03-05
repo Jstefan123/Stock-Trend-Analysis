@@ -1,7 +1,10 @@
 # Stock Sentiment Analysis
 ### Supports socks listed in the DOW30 and NASDAQ100 indices
 
-### Fetching Data (every 24 hours)
+### CirclCI Automated Builds
+###### CircleCI Github integration allows this project to be built every 24 hours hours at midnight to update the sentiment database and plots
+
+### Fetching Data
 ###### Uses Twitter Developer API to fetch up to 100 tweets that match a stock
 ###### Uses NewsAPI.org to fetch all articles published in the past 24 hours that match a stock
 
