@@ -1,5 +1,5 @@
 import config
-from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
 from datetime import datetime, timedelta
 from textblob import TextBlob
 import json
