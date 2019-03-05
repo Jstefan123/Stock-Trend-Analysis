@@ -1,5 +1,5 @@
 import config
-from newsapi import NewsApiClient
+import newsapi
 from datetime import datetime, timedelta
 from textblob import TextBlob
 import json
@@ -7,7 +7,7 @@ import json
 
 def getNewsSentiment(ticker, fullname):
 
-    api = NewsApiClient(api_key=config.news_api_key)
+    api = newsapi.NewsApiClient(api_key=config.news_api_key)
 
     print("Processing", fullname, '(' + ticker + ')', "news articles")
 
