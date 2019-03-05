@@ -25,8 +25,8 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            sudo pip install --upgrade pip
-            sudo pip install textblob datetime newsapi-python tweepy matplotlib
+            pip3 install --upgrade pip
+            pip3 install textblob datetime newsapi-python tweepy matplotlib
 
       - save_cache:
           paths:
