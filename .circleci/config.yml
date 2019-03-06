@@ -1,50 +1,55 @@
 # Python CircleCI 2.0 configuration file
 
-workflows:
-  version: 2
-  nightly:
-    jobs:
-      build:
-        docker:
+version: 2
+nightly:
+  triggers:
+    - schedule:
+        cron: "0 0 * * *"
+        filters:
+          branches:
+            only:
+              - master
+              - beta
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
+      - image: circleci/python:3.6.7
 
-          - image: circleci/python:3.6.7
+    working_directory: ~/StockTrender
 
-        working_directory: ~/StockTrender
+    steps:
+      - checkout
 
-        steps:
-          - checkout
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install textblob datetime newsapi-python tweepy matplotlib
 
-          - run:
-              name: install dependencies
-              command: |
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install --upgrade pip
-                pip install textblob datetime newsapi-python tweepy matplotlib
+      # run tests!
+      # this example uses Django's built-in test-runner
+      # other common Python testing frameworks include pytest and nose
+      # https://pytest.org
+      # https://nose.readthedocs.io
+      - run:
+          name: run database update
+          command: |
+            . venv/bin/activate
+            python3 update.py
 
-          - run:
-              name: run database update
-              command: |
-                . venv/bin/activate
-                python3 update.py
+      - run:
+          name: push to GitHub
+          command: |
+            git config --global user.email "jstefan@umich.edu"
+            git config --global user.name "Jstefan123"
+            git add data/database.sqlite3 plots/*
+            git commit -m "CircleCI data update"
+            git push -u origin master
 
-          - run:
-              name: push to GitHub
-              command: |
-                git config --global user.email "jstefan@umich.edu"
-                git config --global user.name "Jstefan123"
-                git add data/database.sqlite3 plots/*
-                git commit -m "CircleCI data update"
-                git push -u origin master
-
-          - store_artifacts:
-              path: test-reports
-              destination: test-reports
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - master
-                - beta
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
