@@ -1,12 +1,27 @@
 import config
 import tweepy
 import json
+import re
 from textblob import TextBlob
 from datetime import datetime, timedelta
 
+# removes all links and special characters from a tweet
+def cleanTweet(tweet):
+
+    tweet = tweet.split()
+
+    # iterate and add to other array if not ticker or link
+    clean_words = []
+
+    for elt in tweet:
+        if '$' not in elt and 'https' not in elt:
+            clean_words.append(elt)
+
+    return ' '.join(clean_words)
+
 # function to get data for a stock
 # returns tweets as an array of JSON dicts
-def getTwitterSentiment(ticker, full_name):
+def getTwitterRating(ticker, full_name):
 
     auth = tweepy.OAuthHandler(config.twitter_api_key, config.twitter_api_secret_key)
     auth.set_access_token(config.twitter_token, config.twitter_secret_token)
@@ -29,14 +44,21 @@ def getTwitterSentiment(ticker, full_name):
     sentiment = 0
     count = 0
 
+    # get rid of duplicate tweets
+    unique_tweets = set()
+
     # loop through resuls
     for tweet in results:
 
+        # clean the tweet of unneccesary tickers and links
+        clean_tweet = cleanTweet(json.loads(json.dumps(tweet._json))['full_text'])
         # exract the full text of the tweet from the Status object
-        text = json.loads(json.dumps(tweet._json))['full_text']
+        unique_tweets.add(clean_tweet)
 
-        # determine the sentiment value of the tweet
-        analysis = TextBlob(text)
+    # only consider unique tweets for sentiment analysis
+    for tweet in unique_tweets:
+        print(tweet)
+        analysis = TextBlob(tweet)
         value = analysis.sentiment.polarity
         sentiment += value
         count += 1
@@ -52,3 +74,6 @@ def getTwitterSentiment(ticker, full_name):
         obj['num_tweets'] = count
 
     return obj
+
+if __name__ == "__main__":
+    getTwitterRating('AAPL','Apple')

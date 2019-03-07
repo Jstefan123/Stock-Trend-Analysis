@@ -41,8 +41,8 @@ def getIndexData(json_file):
         ticker = stock['ticker']
         full_name = stock['full_name']
 
-        results = getNewsSentiment(ticker, full_name)
-        twitter_results = getTwitterSentiment(ticker, full_name)
+        results = getNewsRating(ticker, full_name)
+        twitter_results = getTwitterRating(ticker, full_name)
 
         # add the num and sentiment elements into results
         results['twitter_sentiment'] = twitter_results['twitter_sentiment']

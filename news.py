@@ -5,7 +5,7 @@ from textblob import TextBlob
 import json
 
 
-def getNewsSentiment(ticker, fullname):
+def getNewsRating(ticker, fullname):
 
     api = NewsApiClient(api_key=config.news_api_key)
 
