@@ -2,14 +2,14 @@ from config import db
 from plot import updateIndexPlots
 from twitter import getTwitterRating
 from news import getNewsRating
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import sqlite3
 
 # inserts data for this index into database
 def insertData(index):
 
-    date = datetime.date(datetime.now())
+    date = datetime.date(datetime.now() - timedelta(hours=1))
 
     if index == 'DOW30':
         data = getIndexData('DOW30.json')
@@ -55,6 +55,6 @@ def getIndexData(json_file):
 # when the file is called, will update both tables and plots
 if __name__ == "__main__":
     #insertData('DOW30')
-    #insertData('NASDAQ100')
+    insertData('NASDAQ100')
     updateIndexPlots('DOW30')
     updateIndexPlots('NASDAQ100')

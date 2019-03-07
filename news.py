@@ -15,7 +15,7 @@ def getNewsRating(ticker, fullname):
     oldest = datetime.date(datetime.now() - timedelta(hours=config.num_hours))
 
     # put the parameters together
-    query = fullname + " AND " + ticker
+    query = fullname + " OR $" + ticker
 
     data = api.get_everything(q=query, from_param=str(oldest), language='en',
                                   sort_by='popularity', page_size=100)
