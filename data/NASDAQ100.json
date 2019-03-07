@@ -102,11 +102,11 @@
     },
     {
       "ticker": "CSCO",
-      "full_name": "Cisco Systems"
+      "full_name": "Cisco"
     },
     {
       "ticker": "CTXS",
-      "full_name": "Citrix Systems"
+      "full_name": "Citrix"
     },
     {
       "ticker": "CMCSA",
@@ -122,7 +122,7 @@
     },
     {
       "ticker": "CTSH",
-      "full_name": "Cognizant Technology Solutions"
+      "full_name": "Cognizant Technology"
     },
     {
       "ticker": "DLTR",
@@ -166,11 +166,11 @@
     },
     {
       "ticker": "GOOG",
-      "full_name": "Alphabet Class C"
+      "full_name": "Alphabet"
     },
     {
       "ticker": "GOOGL",
-      "full_name": "Alphabet Class A"
+      "full_name": "Alphabet"
     },
     {
       "ticker": "HAS",
@@ -206,7 +206,7 @@
     },
     {
       "ticker": "JBHT",
-      "full_name": "J.B. Hunt Transport Services"
+      "full_name": "J.B. Hunt Transport"
     },
     {
       "ticker": "JD",
@@ -306,15 +306,15 @@
     },
     {
       "ticker": "BKNG",
-      "full_name": "Booking Holdings"
+      "full_name": "Booking"
     },
     {
       "ticker": "PYPL",
-      "full_name": "PayPal Holdings"
+      "full_name": "PayPal"
     },
     {
       "ticker": "PEP",
-      "full_name": "PepsiCo"
+      "full_name": "Pepsi"
     },
     {
       "ticker": "QCOM",
@@ -330,11 +330,11 @@
     },
     {
       "ticker": "SIRI",
-      "full_name": "Sirius XM Holdings"
+      "full_name": "Sirius XM"
     },
     {
       "ticker": "SWKS",
-      "full_name": "Skyworks Solutions"
+      "full_name": "Skyworks"
     },
     {
       "ticker": "SBUX",
@@ -350,7 +350,7 @@
     },
     {
       "ticker": "TTWO",
-      "full_name": "Take-Two Interactive Software"
+      "full_name": "Take-Two"
     },
     {
       "ticker": "TSLA",
