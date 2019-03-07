@@ -20,22 +20,25 @@ def getNewsRating(ticker, fullname):
     data = api.get_everything(q=query, from_param=str(oldest), language='en',
                                   sort_by='popularity', page_size=100)
 
+    # only add unique articles
+    unique_articles = set()
+    for article in data["articles"]:
+        unique_articles.add(article["title"])
+
     # number of descriptions that are counted
     count = 0
     # running total of sentiment value
     sentiment = 0
 
-    for article in data["articles"]:
-
-        summary = article["description"]
+    for headline in unique_articles:
 
         # if NoneType then skip
-        if summary is None:
+        if headline is None:
             continue
 
         count += 1;
         # get the polarity rating from each summary
-        analysis = TextBlob(summary)
+        analysis = TextBlob(headline)
         value = analysis.sentiment.polarity
         sentiment += value
 

@@ -57,7 +57,6 @@ def getTwitterRating(ticker, full_name):
 
     # only consider unique tweets for sentiment analysis
     for tweet in unique_tweets:
-        print(tweet)
         analysis = TextBlob(tweet)
         value = analysis.sentiment.polarity
         sentiment += value
@@ -74,6 +73,3 @@ def getTwitterRating(ticker, full_name):
         obj['num_tweets'] = count
 
     return obj
-
-if __name__ == "__main__":
-    getTwitterRating('AAPL','Apple')
