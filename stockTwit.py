@@ -112,4 +112,7 @@ def getStockTwitRating(ticker, min_id, max_id):
             sentiment_sum -= 1
         count = count + 1
 
-    return sentiment_sum / count
+    if count == 0:
+        return 0
+    else:
+        return sentiment_sum / count
