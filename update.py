@@ -2,6 +2,7 @@ from config import db
 from plot import updateIndexPlots
 from twitter import getTwitterRating
 from news import getNewsRating
+from market import getPercentChange
 from datetime import datetime, timedelta
 import json
 import sqlite3
@@ -9,20 +10,20 @@ import sqlite3
 # inserts data for this index into database
 def insertData(index):
 
-    date = datetime.date(datetime.now() - timedelta(hours=1))
+    date = datetime.date(datetime.now())
 
     if index == 'DOW30':
         data = getIndexData('DOW30.json')
         for stock in data:
-            db.execute("INSERT INTO DOW30 VALUES (?,?,?,?,?,?)",
+            db.execute("INSERT INTO DOW30 VALUES (?,?,?,?,?)",
             (stock['ticker'], stock['twitter_sentiment'], stock['news_sentiment'],
-            stock['num_tweets'], stock['num_news'], date))
+            stock['percent_change'], date))
     else:
         data = getIndexData('NASDAQ100.json')
         for stock in data:
-            db.execute("INSERT INTO NASDAQ100 VALUES (?,?,?,?,?,?)",
+            db.execute("INSERT INTO NASDAQ100 VALUES (?,?,?,?,?)",
             (stock['ticker'], stock['twitter_sentiment'], stock['news_sentiment'],
-            stock['num_tweets'], stock['num_news'], date))
+            stock['percent_change'], date))
 
     return
 
@@ -41,12 +42,16 @@ def getIndexData(json_file):
         ticker = stock['ticker']
         full_name = stock['full_name']
 
-        results = getNewsRating(ticker, full_name)
+        news_results = getNewsRating(ticker, full_name)
         twitter_results = getTwitterRating(ticker, full_name)
+        percent_change = getPercentChange(ticker)
 
-        # add the num and sentiment elements into results
-        results['twitter_sentiment'] = twitter_results['twitter_sentiment']
-        results['num_tweets'] = twitter_results['num_tweets']
+        # create a dict of the results
+        results = {}
+        results['ticker'] = ticker
+        results['news_sentiment'] = news_results
+        results['twitter_sentiment'] = twitter_results
+        results['percent_change'] = percent_change
 
         sentiments.append(results)
 

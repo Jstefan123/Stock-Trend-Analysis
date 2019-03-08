@@ -42,14 +42,7 @@ def getNewsRating(ticker, fullname):
         value = analysis.sentiment.polarity
         sentiment += value
 
-    # format data into a JSON dict
-    obj = {}
-    obj['ticker'] = ticker
     if count == 0:
-        obj['news_sentiment'] = 0
-        obj['num_news'] = 0
+        return 0
     else:
-        obj['news_sentiment'] = sentiment / count
-        obj['num_news'] = count
-
-    return obj
+        return sentiment / count

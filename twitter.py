@@ -62,14 +62,7 @@ def getTwitterRating(ticker, full_name):
         sentiment += value
         count += 1
 
-    # format data into a JSON dict
-    obj = {}
-    obj['ticker'] = ticker
     if count == 0:
-        obj['twitter_sentiment'] = 0
-        obj['num_tweets'] = 0
+        return  0
     else:
-        obj['twitter_sentiment'] = sentiment / count
-        obj['num_tweets'] = count
-
-    return obj
+        return sentiment / count
