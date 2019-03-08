@@ -1,10 +1,6 @@
 import sqlite3
 import os
 
-# general
-# number of days to look back for news/tweets
-num_hours = 24
-
 # for news api
 #news_api_key = "999e5995615f44ba8ed4cece981b1a09"
 #news_api_key = "bfff1a9ffbdd4a49a737bee46084c0c3"

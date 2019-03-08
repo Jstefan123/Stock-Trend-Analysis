@@ -11,14 +11,17 @@ def getNewsRating(ticker, fullname):
 
     print("Processing", fullname, '(' + ticker + ')', "news articles")
 
-    # only allow articles in the last 3 days
-    oldest = datetime.date(datetime.now() - timedelta(hours=config.num_hours))
+    # only allow articles from 1 hour after close in pervious day to
+    # 1 hour before open this day (UTC TIME)
+    yesterday = datetime.now() - timedelta(days=1)
+    oldest = yesterday.replace(hour=22, minute=0, second=0, microsecond=0)
+    newest = datetime.now().replace(hour=13, minute=30, second=0, microsecond=0)
 
     # put the parameters together
     query = fullname + " OR $" + ticker
 
-    data = api.get_everything(q=query, from_param=str(oldest), language='en',
-                                  sort_by='popularity', page_size=100)
+    data = api.get_everything(q=query, from_param=str(oldest), to=str(newest),
+                              language='en', sort_by='popularity', page_size=100)
 
     # only add unique articles
     unique_articles = set()

@@ -40,6 +40,8 @@ def getTwitterRating(ticker, full_name):
     results = api.search(q=query, count=100, since=oldest, tweet_mode="extended",
         result_type="mixed", include_entities=False)
 
+    print(results)
+
     # Keep running total of sentiment values
     sentiment = 0
     count = 0
@@ -66,3 +68,7 @@ def getTwitterRating(ticker, full_name):
         return  0
     else:
         return sentiment / count
+
+# when the file is called, will update both tables and plots
+if __name__ == "__main__":
+    getTwitterRating('INTC', 'Intel')
