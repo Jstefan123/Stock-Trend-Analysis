@@ -3,7 +3,7 @@ from plot import *
 
 def main():
 
-    data = getRecentData('NASDAQ100', 'num_news', 'all')
+    data = getRecentData('DOW30', 'news_sentiment', 'all')
     prettyPrintResults(data)
 
 if __name__ == "__main__":

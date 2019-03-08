@@ -39,8 +39,5 @@ def getNASDAQStock(ticker):
 def prettyPrintResults(data):
 
     for entry in data:
-        num_tweets = '(' + str(entry[3]) + ')'
-        num_news = '(' + str(entry[4]) + ')'
-
-        print(entry[0], ": news", round(entry[2],4), num_news, "twitter:",
-        round(entry[1],4), num_tweets, "|", entry[5])
+        print(entry[0], ": news", round(entry[2],4), "twitter:",
+        round(entry[1],4), "percent_change: ", round(entry[3],4), "|", entry[4])

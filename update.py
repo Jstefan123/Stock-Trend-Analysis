@@ -44,7 +44,7 @@ def getIndexData(json_file):
 
         news_results = getNewsRating(ticker, full_name)
         twitter_results = getTwitterRating(ticker, full_name)
-        percent_change = getPercentChange(ticker)
+        percent_change = getPercentChange(ticker, full_name)
 
         # create a dict of the results
         results = {}
@@ -59,7 +59,7 @@ def getIndexData(json_file):
 
 # when the file is called, will update both tables and plots
 if __name__ == "__main__":
-    #insertData('DOW30')
-    insertData('NASDAQ100')
+    insertData('DOW30')
+    #insertData('NASDAQ100')
     updateIndexPlots('DOW30')
-    updateIndexPlots('NASDAQ100')
+    #updateIndexPlots('NASDAQ100')

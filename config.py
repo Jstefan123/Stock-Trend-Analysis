@@ -23,8 +23,8 @@ twitter_api_secret_key = "43GiTYAh61eTgatGk44hTi6fBV7Zw6v7E8AK65LwEYHmggO92w"
 twitter_token = "1103049068052402177-nEkhHawLE76okjfEzlkDoLtiw9gdkF"
 twitter_secret_token = "SizLLo62icfJU7eK7XDZrdjfUvPhio3jPPCT6Xhful1dB"
 
-# for Alpha Vantage api
-av_api_key = "8FZ8HQ0LYHH0I2ZR"
+# IEX Cloud API
+iex_token = "sk_52dd5c23ad974fcfbfd28966ee36ec60"
 
 # create cursor to connect to database
 db_file = os.path.join(

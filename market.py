@@ -1,15 +1,20 @@
-from alpha_vantage.timeseries import TimeSeries
-from config import av_api_key
+import requests
+from config import iex_token
+import json
+
 
 # returns the percent change for the previous trading session of a stock
-def getPercentChange(ticker):
+def getPercentChange(ticker, fullname):
+
 
     print("Processing", fullname, '(' + ticker + ')', "market activity")
 
-    ts = TimeSeries(key='av_api_key', output_format='json')
-    data, meta_data = ts.get_daily(symbol=ticker)
+    # build request url
+    url = 'https://cloud.iexapis.com/beta/stock/'
+    url += ticker
+    url += '/quote?filter=changePercent&token='
+    url += iex_token
 
-    close = float(list(data.values())[0]['4. close'])
-    prev_close = float(list(data.values())[1]['4. close'])
+    data = json.loads(requests.get(url).text)
 
-    return (close - prev_close) / prev_close
+    return data['changePercent'] * 100

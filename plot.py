@@ -11,14 +11,11 @@ def singleStockLineGraph(data):
     dates = []
     news_sent = []
     twitter_sent = []
-    num_news = []
-    num_tweets = []
+    percent_change = []
     for entry in data:
         twitter_sent.append(entry[1])
         news_sent.append(entry[2])
-        num_tweets.append(entry[3])
-        num_news.append(entry[4])
-        dates.append(entry[5])
+        percent_change.append(entry[3])
 
     # close any figure that may be open
     plt.close()
@@ -36,11 +33,10 @@ def singleStockLineGraph(data):
     plt.legend()
     plt.tight_layout()
 
-    # create num results subplot
+    # create percent change subplot
     plt.subplot(1, 2, 2)
-    plt.plot(dates, num_news, 'r-', label="News")
-    plt.plot(dates, num_tweets, 'b-', label="Twitter")
-    plt.ylabel('Number of Results')
+    plt.plot(dates, percent_change, 'g-')
+    plt.ylabel('Percent Change (%)')
     plt.xlabel('Date')
     plt.xticks(dates)
     plt.legend()
