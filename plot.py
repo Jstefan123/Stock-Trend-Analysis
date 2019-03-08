@@ -13,6 +13,7 @@ def singleStockLineGraph(data):
     twitter_sent = []
     percent_change = []
     for entry in data:
+        dates.append(entry[4])
         twitter_sent.append(entry[1])
         news_sent.append(entry[2])
         percent_change.append(entry[3])
@@ -39,7 +40,6 @@ def singleStockLineGraph(data):
     plt.ylabel('Percent Change (%)')
     plt.xlabel('Date')
     plt.xticks(dates)
-    plt.legend()
     plt.tight_layout()
 
     # return the plot

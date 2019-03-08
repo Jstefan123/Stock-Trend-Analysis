@@ -34,13 +34,11 @@ def getTwitterRating(ticker, full_name):
     query = ticker + " AND " + full_name
 
     # only get tweets from the past 5 days
-    oldest = datetime.date(datetime.now() - timedelta(hours=config.num_hours))
+    oldest = datetime.date(datetime.now() - timedelta(hours=24))
 
     # return the 100 most recent results (popular)
     results = api.search(q=query, count=100, since=oldest, tweet_mode="extended",
         result_type="mixed", include_entities=False)
-
-    print(results)
 
     # Keep running total of sentiment values
     sentiment = 0
@@ -68,7 +66,3 @@ def getTwitterRating(ticker, full_name):
         return  0
     else:
         return sentiment / count
-
-# when the file is called, will update both tables and plots
-if __name__ == "__main__":
-    getTwitterRating('INTC', 'Intel')
