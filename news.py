@@ -9,8 +9,6 @@ def getNewsRating(ticker, fullname):
 
     api = NewsApiClient(api_key=config.news_api_key)
 
-    print("Processing", fullname, '(' + ticker + ')', "news articles")
-
     # only allow articles from 1 hour after close in pervious day to
     # 1 hour before open this day (UTC TIME)
     yesterday = datetime.now() - timedelta(days=1)

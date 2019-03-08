@@ -6,9 +6,6 @@ import json
 # returns the percent change for the previous trading session of a stock
 def getPercentChange(ticker, fullname):
 
-
-    print("Processing", fullname, '(' + ticker + ')', "market activity")
-
     # build request url
     url = 'https://cloud.iexapis.com/beta/stock/'
     url += ticker

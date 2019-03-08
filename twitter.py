@@ -26,8 +26,6 @@ def getTwitterRating(ticker, full_name):
     auth = tweepy.OAuthHandler(config.twitter_api_key, config.twitter_api_secret_key)
     auth.set_access_token(config.twitter_token, config.twitter_secret_token)
 
-    print("Processing", full_name, '(' + ticker + ')', "tweets")
-
     # create the api entrypoint
     api = tweepy.API(auth)
 

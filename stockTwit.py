@@ -64,7 +64,7 @@ def getMinID(max_id):
 # calculates the average sentiment on stockTwit discussion board from approximately
 # 1 hour after close to 1 hour before open before this trading session
 # Bearish = -0.5, None = 0, Bullish = 0.5
-def getStockSentiment(ticker, min_id, max_id):
+def getStockTwitRating(ticker, min_id, max_id):
 
     #create the url
     url = 'https://api.stocktwits.com/api/2/streams/symbol/'
@@ -73,7 +73,13 @@ def getStockSentiment(ticker, min_id, max_id):
     url += ('&min=' + str(min_id))
 
     # retrieve first 30 messages that fit in this time period
-    data = json.loads(requests.get(url).text)['messages']
+    data = json.loads(requests.get(url).text)
+
+    # make sure there are messages
+    if data is not None:
+        data = data['messages']
+    else:
+        return 0
 
     last_id = data[-1]['id']
 
@@ -83,7 +89,14 @@ def getStockSentiment(ticker, min_id, max_id):
         url += (ticker + '.json')
         url += ('?max=' + str(last_id))
         url += ('&min=' + str(min_id))
-        more_data = json.loads(requests.get(url).text)['messages']
+
+        more_data = json.loads(requests.get(url).text)
+
+        # make sure there are more messages
+        if more_data is not None:
+            more_data = more_data['messages']
+        else:
+            break
         data += more_data
         last_id = more_data[-1]['id']
 
@@ -100,7 +113,3 @@ def getStockSentiment(ticker, min_id, max_id):
         count = count + 1
 
     return sentiment_sum / count
-
-
-if __name__ == "__main__":
-    print(getStockSentiment('AAPL', 156227833, 156293344))
