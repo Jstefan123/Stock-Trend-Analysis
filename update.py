@@ -2,7 +2,7 @@ from config import db
 from plot import updateIndexPlots
 from twitter import getTwitterRating
 from news import getNewsRating
-from stockTwit import *
+from stockTwits import *
 from market import getPercentChange
 from datetime import datetime, timedelta
 import json
@@ -39,7 +39,7 @@ def getIndexData(json_file):
     sentiments = []
 
     # get the min and max ID's for StockTwit analysis
-    print("Processing min and max ID's for stockTwit analysis")
+    print("Processing min and max ID's for stockTwits analysis")
     max_id = getMaxID()
     min_id = getMinID(max_id)
 
@@ -54,7 +54,7 @@ def getIndexData(json_file):
         print("Processing", full_name, '(' + ticker + ')', "tweets")
         twitter_results = getTwitterRating(ticker, full_name)
 
-        print("Processing", full_name, '(' + ticker + ')', "stockTwit discussion")
+        print("Processing", full_name, '(' + ticker + ')', "stockTwits discussion")
         stockTwit_results = getStockTwitRating(ticker, min_id, max_id)
 
         print("Processing", full_name, '(' + ticker + ')', "market activity")

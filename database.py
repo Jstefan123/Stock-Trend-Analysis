@@ -41,4 +41,4 @@ def prettyPrintResults(data):
     for entry in data:
         print(entry[0], ": news", round(entry[2],4), "twitter:",
         round(entry[1],4), "stockTwit:", round(entry[3],4), "percent_change: ",
-        round(entry[4],4), "|", entry[4])
+        round(entry[4],4), "|", entry[5])
