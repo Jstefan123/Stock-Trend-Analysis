@@ -2,7 +2,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 from twitter import cleanText
-from config import dow30_tickers
+from config import nasdaq100_tickers
 
 # returns the ID of a message closest to 830am
 # uses AAPL discussion board because very popular
@@ -103,7 +103,7 @@ def getStockTwitRating(ticker, min_id, max_id):
 def updateTrainingData(ticker):
 
     print('Processing', ticker, 'data')
-    
+
     url = 'https://api.stocktwits.com/api/2/streams/symbol/' + ticker + '.json'
     data = json.loads(requests.get(url).text)['messages']
 
@@ -149,5 +149,5 @@ def updateTrainingData(ticker):
 # when the file is called, will update both tables and plots
 if __name__ == "__main__":
 
-    for ticker in dow30_tickers:
+    for ticker in nasdaq100_tickers:
         updateTrainingData(ticker)
