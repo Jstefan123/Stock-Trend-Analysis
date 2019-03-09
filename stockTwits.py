@@ -76,7 +76,8 @@ def getStockTwitRating(ticker, min_id, max_id):
     data = json.loads(requests.get(url).text)
 
     # make sure there are messages
-    if data is not None:
+    print(data)
+    if not data is None:
         data = data['messages']
     else:
         return 0
@@ -97,3 +98,9 @@ def getStockTwitRating(ticker, min_id, max_id):
         return 0
     else:
         return sentiment_sum / count
+
+# when the file is called, will update both tables and plots
+if __name__ == "__main__":
+    max = getMaxID()
+    min = getMinID(max)
+    getStockTwitRating('FOX', min, max)
