@@ -49,5 +49,4 @@ def getNewsRating(ticker, fullname):
         return sentiment / count
 
 if __name__ == "__main__":
-    for stock in config.dow30_tickers:
-        print(stock, getIEXNewsRating(stock))
+    test()

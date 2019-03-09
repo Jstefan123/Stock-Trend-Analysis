@@ -4,9 +4,10 @@ import json
 import re
 from textblob import TextBlob
 from datetime import datetime, timedelta
+from html.parser import HTMLParser
 
 # removes all links and special characters from a tweet
-def cleanTweet(tweet):
+def cleanText(tweet):
 
     tweet = tweet.split()
 
@@ -17,7 +18,13 @@ def cleanTweet(tweet):
         if '$' not in elt and 'https' not in elt and '@' not in elt:
             clean_words.append(elt)
 
-    return ' '.join(clean_words)
+    tweet = ' '.join(clean_words)
+
+    # replace any html escape characters
+    tweet = HTMLParser().unescape(tweet)
+
+    # remove undefined non ascii characters
+    return tweet.encode('ascii', 'ignore').decode('utf-8')
 
 # function to get data for a stock
 # returns tweets as an array of JSON dicts
@@ -49,11 +56,12 @@ def getTwitterRating(ticker, full_name):
     for tweet in results:
 
         # clean the tweet of unneccesary tickers and links
-        clean_tweet = cleanTweet(json.loads(json.dumps(tweet._json))['full_text'])
+        clean_tweet = cleanText(json.loads(json.dumps(tweet._json))['full_text'])
+        # remove escape characters
+        clean_tweet = clean_tweet.decode('latin-1')
         # exract the full text of the tweet from the Status object
         unique_tweets.add(clean_tweet)
 
-    # only consider unique tweets for sentiment analysis
     for tweet in unique_tweets:
         analysis = TextBlob(tweet)
         value = analysis.sentiment.polarity
@@ -64,3 +72,7 @@ def getTwitterRating(ticker, full_name):
         return  0
     else:
         return sentiment / count
+
+# when the file is called, will update both tables and plots
+if __name__ == "__main__":
+    getTwitterRating('INTC', 'Intel')

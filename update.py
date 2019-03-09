@@ -22,7 +22,7 @@ def insertData(index):
     else:
         data = getIndexData('NASDAQ100.json')
         for stock in data:
-            db.execute("INSERT INTO NASDAQ100 VALUES (?,?,?,?,?)",
+            db.execute("INSERT INTO NASDAQ100 VALUES (?,?,?,?,?,?)",
             (stock['ticker'], stock['twitter_sentiment'], stock['news_sentiment'],
             stock['stockTwit_sentiment'], stock['percent_change'], date))
 
@@ -76,5 +76,5 @@ def getIndexData(json_file):
 if __name__ == "__main__":
     #insertData('DOW30')
     insertData('NASDAQ100')
-    #updateIndexPlots('DOW30')
+    updateIndexPlots('DOW30')
     updateIndexPlots('NASDAQ100')

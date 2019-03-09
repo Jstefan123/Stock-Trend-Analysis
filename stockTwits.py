@@ -1,6 +1,7 @@
 import requests
 import json
 from datetime import datetime, timedelta
+from twitter import cleanText
 
 # returns the ID of a message closest to 830am
 # uses AAPL discussion board because very popular
@@ -76,7 +77,6 @@ def getStockTwitRating(ticker, min_id, max_id):
     data = json.loads(requests.get(url).text)
 
     # make sure there are messages
-    print(data)
     if not data is None:
         data = data['messages']
     else:
@@ -99,8 +99,45 @@ def getStockTwitRating(ticker, min_id, max_id):
     else:
         return sentiment_sum / count
 
+def getTrainingData():
+
+    url = 'https://api.stocktwits.com/api/2/streams/symbol/AAPL.json'
+    data = json.loads(requests.get(url).text)['messages']
+
+    dataset = []
+
+    # request 30 times
+    for i in range(0,3):
+
+        # add all 30 message bodies and their sentiments
+        for message in data:
+
+            context = {}
+            # remove tickers, handles, links from text
+            body = cleanText(message['body'])
+
+            # do not add blank texts
+            if not body is None:
+
+                context['text']  = body
+                # add the sentiment
+                if message["entities"]["sentiment"] == None:
+                    continue
+                elif message["entities"]["sentiment"]["basic"] == 'Bullish':
+                    context['sentiment'] = 'positive'
+                elif message["entities"]["sentiment"]["basic"] == 'Bearish':
+                    context['sentiment'] = 'negative'
+
+                dataset.append(context)
+
+        # construct new url
+        new_url = url + '?max=' + str(data[-1]['id'] - 1)
+        # request new data
+        data = json.loads(requests.get(new_url).text)['messages']
+
+    for i in dataset:
+        print(i)
+
 # when the file is called, will update both tables and plots
 if __name__ == "__main__":
-    max = getMaxID()
-    min = getMinID(max)
-    getStockTwitRating('FOX', min, max)
+    getTrainingData()
