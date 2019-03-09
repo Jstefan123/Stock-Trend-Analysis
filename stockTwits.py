@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 from twitter import cleanText
+from config import dow30_tickers
 
 # returns the ID of a message closest to 830am
 # uses AAPL discussion board because very popular
@@ -99,15 +100,21 @@ def getStockTwitRating(ticker, min_id, max_id):
     else:
         return sentiment_sum / count
 
-def getTrainingData():
+def updateTrainingData(ticker):
 
-    url = 'https://api.stocktwits.com/api/2/streams/symbol/AAPL.json'
+    print('Processing', ticker, 'data')
+    
+    url = 'https://api.stocktwits.com/api/2/streams/symbol/' + ticker + '.json'
     data = json.loads(requests.get(url).text)['messages']
 
-    dataset = []
+    dataset = {}
 
-    # request 30 times
-    for i in range(0,3):
+    # open existing training data file
+    with open('data/training_data.json') as infile:
+        dataset = json.load(infile)
+
+    # request 5 times
+    for i in range(0,5):
 
         # add all 30 message bodies and their sentiments
         for message in data:
@@ -128,16 +135,19 @@ def getTrainingData():
                 elif message["entities"]["sentiment"]["basic"] == 'Bearish':
                     context['sentiment'] = 'negative'
 
-                dataset.append(context)
+                dataset['data'].append(context)
 
         # construct new url
         new_url = url + '?max=' + str(data[-1]['id'] - 1)
         # request new data
         data = json.loads(requests.get(new_url).text)['messages']
 
-    for i in dataset:
-        print(i)
+    # save it to a json file
+    with open('data/training_data.json', 'w') as outfile:
+        json.dump(dataset, outfile)
 
 # when the file is called, will update both tables and plots
 if __name__ == "__main__":
-    getTrainingData()
+
+    for ticker in dow30_tickers:
+        updateTrainingData(ticker)
