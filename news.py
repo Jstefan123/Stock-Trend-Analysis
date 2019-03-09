@@ -3,7 +3,7 @@ from newsapi import NewsApiClient
 from datetime import datetime, timedelta
 from textblob import TextBlob
 import json
-
+import requests
 
 def getNewsRating(ticker, fullname):
 
@@ -47,3 +47,7 @@ def getNewsRating(ticker, fullname):
         return 0
     else:
         return sentiment / count
+
+if __name__ == "__main__":
+    for stock in config.dow30_tickers:
+        print(stock, getIEXNewsRating(stock))

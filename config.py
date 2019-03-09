@@ -4,8 +4,8 @@ import os
 # for news api
 #news_api_key = "999e5995615f44ba8ed4cece981b1a09"
 #news_api_key = "bfff1a9ffbdd4a49a737bee46084c0c3"
-#news_api_key = "89b8002c604141beb375abd022bb210d"
-news_api_key = "89de6b14f4164498b0161a78dcf88cd1"
+news_api_key = "89b8002c604141beb375abd022bb210d"
+#news_api_key = "89de6b14f4164498b0161a78dcf88cd1"
 
 
 # for twitter api

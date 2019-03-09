@@ -10,11 +10,11 @@ def cleanTweet(tweet):
 
     tweet = tweet.split()
 
-    # iterate and add to other array if not ticker or link
+    # iterate and add to other array if not ticker or link or handle
     clean_words = []
 
     for elt in tweet:
-        if '$' not in elt and 'https' not in elt:
+        if '$' not in elt and 'https' not in elt and '@' not in elt:
             clean_words.append(elt)
 
     return ' '.join(clean_words)

@@ -75,6 +75,6 @@ def getIndexData(json_file):
 # when the file is called, will update both tables and plots
 if __name__ == "__main__":
     #insertData('DOW30')
-    #insertData('NASDAQ100')
-    updateIndexPlots('DOW30')
-    #updateIndexPlots('NASDAQ100')
+    insertData('NASDAQ100')
+    #updateIndexPlots('DOW30')
+    updateIndexPlots('NASDAQ100')
